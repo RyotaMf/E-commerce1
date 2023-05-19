@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MealMaven</title>
+    <link rel="stylesheet" href="login_page.css">
+</head>
+<body>
+    <div class="container">
+        <div class="business-name">
+             <h1>Meal<span class="pink">Maven</span></h1>
+             <h2>Taste the convenience</h2>
+        </div>
+
+        <div class="form" id="create-btn">
+             <h1>Register</h1>
+             <form>
+                 <input type="text" id="username" placeholder="Username" name="username" value="" autocomplete="off">
+                 <input type="email" id="email" placeholder="Email" name="email" value="" autocomplete="off">
+                 <input type="password" id="password" placeholder="Password" name="password" value="" autocomplete="off">
+                 <h3>Have an account? <a href="login.html"><span>Log in</span></a> </h3>
+                 <input type="submit" value="Sign up" id="submit-btn">
+             </form>
+        </div>
+    </div>
+
+<script type="module">
+    
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+    import { getDatabase, set, ref } from   "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+    
+  
+    
+    const firebaseConfig = {
+      apiKey: "AIzaSyDXHW_kyGNKsVOOxW9ElrL9re3kLSimNbQ",
+      authDomain: "final-project-4530a.firebaseapp.com",
+      databaseURL: "https://final-project-4530a-default-rtdb.firebaseio.com",
+      projectId: "final-project-4530a",
+      storageBucket: "final-project-4530a.appspot.com",
+      messagingSenderId: "451936145881",
+      appId: "1:451936145881:web:d0a9d373ccf197ec5689c8"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const submit = document.getElementById('submit-btn')
+
+    const auth = getAuth(app);
+
+    
+    
+        submit.addEventListener('click', (e) => {
+        
+        e.preventDefault();
+
+        const email = document.getElementById('email').value; 
+        const password = document.getElementById('password').value;
+        const username = document.getElementById('username').value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+        const user = userCredential.user;
+        set(ref(database, 'users/' + user.uid),{
+            username: username,
+            email: email,
+            password: password
+        })
+        alert('user created')
+        window.location.href = "login.html";
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+            alert(errorMessage)
+        });
+    })
+
+    window.addEventListener('beforeunload', function() {
+    document.getElementById('username').value = '';
+    document.getElementById('email').value = '';
+    });
+
+
+  </script>
+ </body>
+</html>

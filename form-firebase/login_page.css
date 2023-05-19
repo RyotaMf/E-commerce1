@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh; 
+    background-image: url("images/bg-back.jpg"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Poppins;
+}
+
+
+.container {
+    position: absolute;
+    height: 650px;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    border-radius: 15px;
+}
+
+.business-name {
+    height: 650px;
+    width: 50%;
+    background-color: #001219;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.business-name h1 {
+    color: #f4f1de;
+    font-size: 80px;
+}
+
+.business-name .pink {
+    color: #d62828;
+}
+
+.business-name h2 {
+    color: #f4f1de;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.form {
+    height: 650px;
+    width: 50%;
+    background-color: #edf2f4; 
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form h1 {
+    font-size: 60px;
+}
+
+.form h3 {
+    font-weight: 600;
+    margin: auto;
+}
+
+.form h3 a {
+    text-decoration: none;
+    color: #0096c7;
+    margin-left: 5px;
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 2vw 4vw;
+}
+
+input {
+    width: 400px;
+    height: 60px;
+    outline-color: blue;
+    border: 0;
+    background-color: #e5e5e5;
+    padding: 20px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.form form #submit-btn {
+    background-color: #0077b6;
+    border-radius: 30px;
+    font-size: 18px;
+    width: 250px;
+    align-self: center;
+    font-weight: 600;
+    color: white;
+}
+
+.form p{
+    color: red;
+    align-self: center;
+    display: none;
+}
+
