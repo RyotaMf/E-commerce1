@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   addToCartButtons.forEach(button => {
     button.addEventListener('click', () => {
-      // Get the details of the item
+      
       const itemContainer = button.parentElement;
       const image = itemContainer.querySelector('.food-image').src;
       const title = itemContainer.querySelector('.food-title').textContent;
       const price = itemContainer.querySelector('.food-price').textContent;
 
-      // Create a new element to display the item in the cart container
+      
       const newItem = document.createElement('div');
       newItem.classList.add('cart-item');
       newItem.innerHTML = `
